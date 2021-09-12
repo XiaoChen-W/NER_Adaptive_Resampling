@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 11 15:46:06 2021
 
-@author: Lenovo
-"""
 
 import tensorflow as tf
 # Implementation of Focal Loss and Dice Loss using Tensorflow 1.12.0
