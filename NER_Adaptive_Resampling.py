@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jul  6 02:54:12 2021
 
-@author: Lenovo
-"""
 
 from collections import Counter
 import re
