@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 11 14:57:56 2021
-
-@author: Lenovo
-"""
 
 
 
