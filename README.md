@@ -6,13 +6,13 @@ For resampling functions mentioned in our paper, please see NER_Adaptive_Resampl
 
   For the purpose of using BUS(Balanced UnderSampling) method, using the following code:
 
-  	NER_Adapative_Resampling(inputpath, outputpath)
-  	NER_Adapative_Resampling.BUS()
+  	NER_Adaptive_Resampling(inputpath, outputpath)
+  	NER_Adaptive_Resampling.BUS()
 
   For using our methods(sc, sCR, sCRD, nsCRD), please copy the following codes:
 
-  	NER_Adapative_Resampling(inputpath, outputpath)
-  	NER_Adapative_Resampling.resamp(one_of_this_method)
+  	NER_Adaptive_Resampling(inputpath, outputpath)
+  	NER_Adaptive_Resampling.resamp(one_of_this_method)
 
 ## Loss Functions for Shallow Model
 
