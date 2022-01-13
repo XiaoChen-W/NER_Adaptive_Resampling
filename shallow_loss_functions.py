@@ -128,7 +128,7 @@ def _multinomial_loss_grad(w, X, Y, alpha, sample_weight):
     p_c = np.array([[i] for i in p_c])+np.zeros(p.shape)
     a_c = -gamma*np.log(p_c)*p_c*(1-p_c)**(gamma-1)+(1-p_c)**gamma
     diff =  a_c*(p-Y)
-    # Dice Loss derivation implementation, comment the following eleven lines if use Dice Loss
+    # Dice Loss derivation implementation, comment the following eleven lines if use Focal Loss
     # gamma = 1
     # a_c= np.array([2*(1-p_c)*(1+gamma+p_c)*p_c/((gamma+p_c**2+1)**2)])
     # diff =  a_c.T*(p-Y)
