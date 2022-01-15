@@ -23,8 +23,10 @@ from augment import generate_sentences_by_shuffle_within_segments, generate_sent
 
 
 
-class Augment_data(inputpath)
-    corpus = ConllCorpus("development", inputpath, outputpath)
+def Augment_data(inputpath,outputpath, aug_method):
+    
+    # read data
+    corpus = ConllCorpus("development", inputpath)
     tag_dict = corpus.build_tag_dict("gold")
     
     print('dataset has been read')
@@ -35,7 +37,16 @@ class Augment_data(inputpath)
     for s in corpus.train:
         # select one augmentation method that can provide best performance according to their paper
         # set hyperparameters as defaulted values
-        aug = generate_sentences_by_synonym_replacement(s, 0.3, 1)[0]
+        # augmentation method must be selected between ['SR', 'LwTR', 'MR', 'SiS']
+        aug = ''
+        if aug_method == 'SR':
+            aug = generate_sentences_by_synonym_replacement(s, 0.3, 1)[0]
+        if aug_method == 'LwTR':
+            aug =  generate_sentences_by_replace_token(s, label2tokens, 0.3, 1)[0]
+        if aug_method == 'MR':
+            aug = generate_sentences_by_replace_mention(s, category2mentions, 0.3, 1)[0]
+        if aug_method == 'SiS':
+            aug = generate_sentences_by_shuffle_within_segments(s, 0.3, 1)[0]
         # cover both original data as well as generated data
         for i in s:
             f.write(str(i) + ' ' + i.get_label('gold') + '\n')
@@ -44,6 +55,5 @@ class Augment_data(inputpath)
             f.write(str(i) + ' ' + i.get_label('gold') + '\n')
         f.write('\n')
     f.close()
-
 
 
