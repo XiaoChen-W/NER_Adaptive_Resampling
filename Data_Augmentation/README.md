@@ -6,7 +6,7 @@ This repo provides a convenient script to generate augmented dataset according t
 
 Please see https://github.com/boschresearch/data-augmentation-coling2020 for more details.
 
-# Usage
+## Usage
 
 For using our script, please see the script called 'augment_script'
 
