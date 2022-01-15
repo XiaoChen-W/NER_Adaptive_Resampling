@@ -53,4 +53,3 @@ For resampling functions mentioned in our paper, please see NER_Adaptive_Resampl
 	
   WNUT2017: https://github.com/leondz/emerging_entities_17
 	
-  OntoNotes 5.0: https://catalog.ldc.upenn.edu/LDC2013T19
