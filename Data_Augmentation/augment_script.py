@@ -36,7 +36,7 @@ def Augment_data(inputpath,outputpath, aug_method):
     f = open(outputpath, 'w', encoding = 'utf-8')
     for s in corpus.train:
         # select one augmentation method that can provide best performance according to their paper
-        # set hyperparameters as defaulted values
+        # set hyperparameters as default values
         # augmentation method must be selected between ['SR', 'LwTR', 'MR', 'SiS']
         aug = ''
         if aug_method == 'SR':
