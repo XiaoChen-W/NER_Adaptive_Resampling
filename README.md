@@ -66,4 +66,4 @@ For any question, please contact xcwang@email.unc.edu
 
 If you would like to use this code for your work, please cite the following:
 
-<Available after the formal publishment>
+{Will be available after the formal publishment}
