@@ -98,22 +98,27 @@ class NER_Adaptive_Resampling():
         
         # R parameter is set to 3, as what metioned in this paper.
         
+        # Thank Jing Hou for pointing out a previous bug in this part
+        
         
         output = open(self.outputpath,'w',encoding = 'utf-8')
         x,y =  self.conll_data_read()
         for sen in range(len(x)):
-            pos = len([label for label in y[sen] if label != 'O'])
-            thres = 3*pos
+            num_sampled = len([label for label in y[sen] if label != 'O'])
+            thres = 3*num_sampled
             mask = [1 if label != 'O' else 0 for label in y[sen] ]
-            while pos<thres and pos < len(y[sen]):
-                for i in range(len(y[sen])-1):
-                    if mask[i] == 1 and mask[i+1] == 0:
-                        mask[i+1] = 1
-                        pos += 1
-                for i in range(len(y[sen])-1,0,-1):
-                    if mask[i] == 1 and mask[i-1] == 0:
-                        mask[i-1] = 1
-                        pos += 1
+            while num_sampled < thres and num_sampled < len(y[sen]):
+                index=np.where(np.array(mask) == 1)[0]
+                for i in index:
+                    if i != len(mask)-1:
+                        if mask[i+1] == 0:
+                            mask[i+1] = 1
+                            num_sampled += 1
+                for i in index:
+                    if i != 0:
+                        if mask[i-1] == 0:
+                            mask[i-1] = 1
+                            num_sampled += 1
             for i in range(len(y[sen])):
                 if mask[i] == 1:
                     output.write(x[sen][i]+' '+y[sen][i]+'\n')
